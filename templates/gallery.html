@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gallery</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Orbitron&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>📸 My Journal Entries</h1>
+    <div class="gallery">
+      {% for entry in entries %}
+      <div class="card {{ entry.mood.split(' ')[1] | lower }}">
+        <img src="{{ url_for('static', filename='uploads/' + entry.photo) }}" alt="Photo">
+        <p><strong>{{ entry.date }}</strong></p>
+        <p>{{ entry.caption }}</p>
+        <p class="mood">{{ entry.mood }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <a href="/" class="back-link">➕ Add New Entry</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Photo Journal - Cute Vaporwave</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Orbitron&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>📓✨ My Vibe Diary ✨</h1>
+    <p style="color: #ff99ff; font-style: italic;">🌸 {{ quote }} 🌸</p>
+    <form method="post" enctype="multipart/form-data">
+      <input type="file" name="photo" required><br>
+      <textarea name="caption" id="caption" placeholder="Write something... or click for magic quote"></textarea><br>
+      <div style="margin-top: 10px;">
+    <label style="color: #ffccff;">🌈 Choose Your Mood:</label><br>
+    <label><input type="radio" name="mood" value="🔥 Passionate"> 🔥</label>
+    <label><input type="radio" name="mood" value="💛 Warm"> 💛</label>
+    <label><input type="radio" name="mood" value="💚 Calm"> 💚</label>
+    <label><input type="radio" name="mood" value="💙 Cool" checked> 💙</label>
+  </div>
+
+  <button type="button" onclick="generateQuote()">🎲 Generate AI Quote</button><br>
+  <button type="submit">Upload</button>
+</form>
+    <a href="/gallery" class="view-link">🌈 View My Journal</a>
+  </div>
+
+  <script>
+    function generateQuote() {
+      const quotes = [
+        "Lost in thought, found in pixels.",
+        "Another memory, softly framed.",
+        "Where silence meets the soul.",
+        "Vibes too loud for words.",
+        "Eyes say what hearts hide.",
+        "My camera understands me.",
+        "Soft chaos in still frames."
+      ];
+      const random = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById('caption').value = random;
+    }
+  </script>
+</body>
+</html>
